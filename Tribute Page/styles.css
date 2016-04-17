@@ -1,6 +1,6 @@
-@media (max-width: @screen-xs-max) { 
-  .jumbotron {
-    background-size: 60% 100%;
+@media (max-width: 768px) { 
+  .main {
+  margin: 0;
   }
  }
 
