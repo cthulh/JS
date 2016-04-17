@@ -29,6 +29,7 @@ h4 {
 .skills {
 	font-size: 140%;
 	text-align: center;
+	margin-bottom: 1.5em;
 }
 
 .facepic {
@@ -52,7 +53,7 @@ header {
 }
 
 .extraspacious {
-	padding: 5em 0;
+	padding: 3.5em 0 5em 0;
 }
 
 header img {
@@ -66,4 +67,12 @@ header img {
 .social li {
 	display: inline-block;
 	margin: 0.03em;
+}
+
+.tagline {
+	background-color: orange;
+}
+
+.top-2em {
+	padding-top: 2em;
 }
