@@ -27,9 +27,12 @@ h4 {
 }
 
 .skills {
-	font-size: 140%;
 	text-align: center;
 	margin-bottom: 1.5em;
+}
+
+.skills li {
+	font-size: 200%;
 }
 
 .facepic {
@@ -69,10 +72,14 @@ header img {
 	margin: 0.03em;
 }
 
-.tagline {
+.orange-bg {
 	background-color: orange;
 }
 
 .top-2em {
 	padding-top: 2em;
+}
+
+.story {
+	line-height: 1.3em;
 }
