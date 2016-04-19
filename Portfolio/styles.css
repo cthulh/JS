@@ -101,3 +101,17 @@ footer p {
 #projects img {
 	border-radius: 2%;
 }
+
+body {
+	padding-top: 1em;
+}
+
+.top-2em {
+	padding-top: 2em;
+}
+
+.nav a {
+	font-family: "Open Sans";
+	font-weight: 600;
+	letter-spacing: 0.2em;
+}

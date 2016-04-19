@@ -10,8 +10,23 @@
 	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<nav>
-			
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-collapse collapse">
+        			<ul class="nav navbar-nav center">
+        				<li><a href="#">home</a></li>
+			          	<li><a href="#story">story</a></li>
+			          	<li><a href="#projects">projects</a></li>
+			        </ul>
+      			</div>
+      			<button type="button" class="navbar-toggle" data-toggle="collapse"
+		          data-target=".navbar-collapse">
+		          <span class="sr-only">Toggle navigation</span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		        </button>
+			</div>
 		</nav>
 		<header class="extraspacious">
 			<h1 class="white">: : mariusz borowiak : :</h1>
@@ -40,18 +55,19 @@
 							<li><span class="label label-default">github</span></li>
 						</ul>
 					</div>
-					<div class="pic_of_me col-md-7 col-xs-12 top-1em">
+					
+					<div class="pic_of_me col-md-7 col-xs-12 top-2em">
 						<h2 class="text-center"><kbd>::  the face  ::</kbd></h2>
 						<img class="img-responsive img-circle center facepic" src="img/facepic1_500.jpg">
 					</div>
-					<div class="col-md-5 col-xs-12 top-1em">
+					<div class="col-md-5 col-xs-12 top-2em" id="story">
 						<h2 class="text-center"><kbd>::  my story  ::</kbd></h2>
 						<h4 class="text-center story">so i studied IT back in <strong><span class="text-primary">uni days</span></strong> <br>dropped out as was more into <span class="label label-warning">ibsen's dramas</span> <br>and <span class="label label-danger">street drinking</span> at the time<br><strong>never wanted</strong> an office job, always an outside creature<br>rewind 10 years...<br>i went <span class="label label-success">vegan</span>, sarted running, forgot all about ibsen, reading programming books on <span class="label label-danger">ruby</span> and <span class="label label-warning">javascript</span> to sleep<br>finally decided <kbd>web dev</kbd> is the future for me</h4>
 					</div>
 				</div> <!-- /intro -->
 			</div> <!-- /row 1 -->
 			<div class="row" id="projects"> <!-- row 2 -->
-				<div class="col-xs-12 top-1em">
+				<div class="col-xs-12 top-2em">
 					<div class="col-xs-12">
 						<h2 class="text-center"><kbd>::  projects  ::</kbd></h2>
 					</div>
