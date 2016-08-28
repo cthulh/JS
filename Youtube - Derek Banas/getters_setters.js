@@ -63,7 +63,7 @@ var aPoint = new Point();
 aPoint.pointPosition = "100, 200";
 document.write("Point Position : " + aPoint.pointPosition + "<br>");
 
-// ECAM 5.1 version
+// ECMA 5.1 version
 
 var Circle = function(radius) {
   this._radius = radius;
