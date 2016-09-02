@@ -25,7 +25,7 @@ var arcticWolf = new Wolf();
 document.write(arcticWolf.toString() + "<br>");
 document.write("Wolf instance of Animal : " + (arcticWolf instanceof Animal) + "<br>");
 
-Animal.prototype.sound = "Grrrrr";
+Animal.prototype.sound = "Grrrrrr";
 Animal.prototype.getSound = function(){
   return this.name + " says " + this.sound;
 }
