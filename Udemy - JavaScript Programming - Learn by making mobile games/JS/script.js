@@ -5,7 +5,7 @@ var speed = 2;
 var ctx = canvas.getContext("2d");
 
 var update = function() {
-  x += speed;
+  x += speed; 
   console.log(x);
 };
 
