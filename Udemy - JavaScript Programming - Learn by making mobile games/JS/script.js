@@ -10,6 +10,7 @@ window.addEventListener('load', function(){
   var GAME_HEIGHT = 360;
   // speed of movement of rectangle
   var speed = 2;
+  var playerAlive = true;
   var ctx = canvas.getContext("2d");
   var ctx2 = canvas2.getContext("2d");
   // color zones
@@ -106,7 +107,14 @@ window.addEventListener('load', function(){
     };*/
     enemies.forEach(function(enemy,index){
       enemy.y += enemy.speedY;
-
+      // check for collision with player
+      if (checkCollision(player, enemy)) {
+        // stop game 
+        playerAlive = false;
+        alert("Game Over");
+        // refresh browser = reset game
+        window.location = "";
+      }
       // check for borders
       if (enemy.y <= 10) {
         enemy.y = 10;
@@ -154,7 +162,17 @@ window.addEventListener('load', function(){
     update();
     draw();
 
-    window.requestAnimationFrame(step)
+    if (playerAlive) {
+      window.requestAnimationFrame(step)
+    }
   };
+  // check collisionvar
+  var checkCollision = function(rect1, rect2) {
+  var closeOnWidth = Math.abs(rect1.x - rect2.x) <= Math.max(rect1.w, rect2.w);
+  var closeOnHeight = Math.abs(rect1.y - rect2.y) <= Math.max(rect1.h, rect2.h);
+
+  return closeOnWidth && closeOnHeight;
+  };
+  // start game
   step();
 });
