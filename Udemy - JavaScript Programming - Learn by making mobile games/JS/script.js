@@ -2,6 +2,9 @@
 var x = 10, y = 10, w = 20, h = 30;
 var canvas = document.getElementById("myCanvas");
 var canvas2 = document.getElementById("myCanvas2");
+// canvas2 size
+var GAME_WIDTH = 640;
+var GAME_HEIGHT = 360;
 // speed of movement of rectangle
 var speed = 2;
 var ctx = canvas.getContext("2d");
@@ -69,6 +72,15 @@ var update = function() {
   };*/
   enemies.forEach(function(enemy,index){
     enemy.y += enemy.speedY;
+
+    // check for borders
+    if (enemy.y <= 10) {
+      enemy.y = 10;
+      enemy.speedY *= -1;
+    } else if (enemy.y >= GAME_HEIGHT - enemy.h - 10) {
+      enemy.y = GAME_HEIGHT - enemy.h - 10;
+      enemy.speedY *= -1;
+    }
   });
 };
 
