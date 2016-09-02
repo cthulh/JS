@@ -1,8 +1,10 @@
 window.addEventListener('load', function(){
+  
   // starting position & width and height of rectangle
   var x = 10, y = 10, w = 20, h = 30;
   var canvas = document.getElementById("myCanvas");
   var canvas2 = document.getElementById("myCanvas2");
+
   // canvas2 size
   var GAME_WIDTH = 640;
   var GAME_HEIGHT = 360;
@@ -52,6 +54,21 @@ window.addEventListener('load', function(){
     h: 40,
     isMoving: false
   };
+
+  // move player
+  var movePlayer = function(){
+    player.isMoving = true;
+  };
+  // stop player
+  var stopPlayer = function(){
+    player.isMoving = false;
+  };
+
+  // event listener to move player
+  canvas2.addEventListener("mousedown", movePlayer);
+  canvas2.addEventListener("mouseup", stopPlayer);
+  canvas2.addEventListener("touchstart", movePlayer);
+  canvas2.addEventListener("touchend", stopPlayer);
 
   var update = function() {
 
