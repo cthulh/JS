@@ -56,6 +56,13 @@ window.addEventListener('load', function(){
     isMoving: false
   };
 
+  var goal = {
+    x: 610,
+    y: 160,
+    w: 40,
+    h: 40,
+  };
+
   // move player
   var movePlayer = function(){
     player.isMoving = true;
@@ -72,6 +79,13 @@ window.addEventListener('load', function(){
   canvas2.addEventListener("touchend", stopPlayer);
 
   var update = function() {
+
+    // check if player reached the goal
+    if (checkCollision(player, goal)) {
+      playerAlive = false;
+      alert("You Won!");
+      window.location = "";
+    }
 
     // player
     if (player.isMoving) {
@@ -141,6 +155,10 @@ window.addEventListener('load', function(){
     // draw player on canvas2
     ctx2.fillStyle = "#00FF00";
     ctx2.fillRect(player.x, player.y, player.w, player.h);
+
+    // draw goal
+    ctx2.fillStyle = "#000000";
+    ctx2.fillRect(goal.x, goal.y, goal.w, goal.h);
 
     // draw enemies on canvas 2
     // fill color
