@@ -67,8 +67,12 @@
         speed = -speed;
       }
 
-
-      x = x + speed;
+      if (x >= 100 && x <= 150) {
+        y = y + 1;
+        x = x + speed;
+      } else {
+        x = x + speed;
+      }
 
       //define color
       blueZone = x > 0 && x < 100;
