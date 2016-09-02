@@ -60,13 +60,16 @@ var update = function() {
   greenZone = !blueZone && x < 200;
 
   // update position of enemies on canvas 2
-  var j = 0;
+  /*var j = 0;
   var n = enemies.length;
 
   while (j< n) {
     enemies[j].y += enemies[j].speedY;
     j += 1;
-  }
+  };*/
+  enemies.forEach(function(enemy,index){
+    enemy.y += enemy.speedY;
+  });
 };
 
 var draw = function() {
@@ -84,13 +87,16 @@ var draw = function() {
   // fill color
   ctx2.fillStyle = "#3333FF"
   // draw enemies on canvas 2
-  var j = 0;
+  /*var j = 0;
   var n = enemies.length;
 
   while (j < n) {
     ctx2.fillRect(enemies[j].x, enemies[j].y, enemies[j].w, enemies[j].h);
     j += 1;
-  };
+  };*/
+  enemies.forEach(function(enemy,index){
+    ctx2.fillRect(enemy.x, enemy.y, enemy.w, enemy.h);
+  });
 };
 
 var step = function() {
