@@ -63,6 +63,9 @@ window.addEventListener('load', function(){
     h: 40,
   };
 
+  // images holder
+  var sprites = {};
+
   // move player
   var movePlayer = function(){
     player.isMoving = true;
@@ -77,6 +80,20 @@ window.addEventListener('load', function(){
   canvas2.addEventListener("mouseup", stopPlayer);
   canvas2.addEventListener("touchstart", movePlayer);
   canvas2.addEventListener("touchend", stopPlayer);
+
+  var load = function (){
+    sprites.player = new Image();
+    sprites.player.src = 'images/hero.png';
+
+    sprites.enemy = new Image();
+    sprites.enemy.src = 'images/enemy.png';
+
+    sprites.background = new Image();
+    sprites.background.src = 'images/floor.png';
+
+    sprites.goal = new Image();
+    sprites.goal.src = 'images/chest.png';
+  };
 
   var update = function() {
 
@@ -152,17 +169,18 @@ window.addEventListener('load', function(){
     }
     ctx.fillRect(x, y, w, h);
 
-    // draw player on canvas2
-    ctx2.fillStyle = "#00FF00";
-    ctx2.fillRect(player.x, player.y, player.w, player.h);
+    // draw background on canvas2
+    ctx2.drawImage(sprites.background, 0, 0);
 
-    // draw goal
-    ctx2.fillStyle = "#000000";
-    ctx2.fillRect(goal.x, goal.y, goal.w, goal.h);
+    // draw player on canvas2
+    ctx2.drawImage(sprites.player, player.x, player.y);
+
+    // draw goal on canvas2
+    ctx2.drawImage(sprites.goal, goal.x, goal.y);
 
     // draw enemies on canvas 2
     // fill color
-    ctx2.fillStyle = "#3333FF"
+    //ctx2.fillStyle = "#3333FF"
     /*var j = 0;
     var n = enemies.length;
 
@@ -171,7 +189,7 @@ window.addEventListener('load', function(){
       j += 1;
     };*/
     enemies.forEach(function(enemy,index){
-      ctx2.fillRect(enemy.x, enemy.y, enemy.w, enemy.h);
+      ctx2.drawImage(sprites.enemy, enemy.x, enemy.y);
     });
   };
 
@@ -191,6 +209,8 @@ window.addEventListener('load', function(){
 
   return closeOnWidth && closeOnHeight;
   };
+  // load images
+  load();
   // start game
   step();
 });
