@@ -110,6 +110,19 @@
         sprites.goal.src = 'images/chest.png';
       };
 
+      var levelUp = function(){
+        level += 1;
+        player.x = 10;
+        player.y = 160;
+        enemies.forEach(function(enemy,index){
+          if (enemy.speedY > 0) {
+            enemy.speedY += 1;
+          } else {
+            enemy.speedY -= 1;
+          }
+        });
+      };
+
       //update the logic
       var update = function() {
 
@@ -133,9 +146,7 @@
 
           ///////////////////////////////
           */
-
-
-            
+          levelUp();
         }
 
         //update player
