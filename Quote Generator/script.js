@@ -2,8 +2,8 @@
 var get_quote = function(q) {
 	var rand = function(limit) {
 		return Math.floor((Math.random() * limit));
-	}
-	var x = rand(99);;
+	};
+	var x = rand(99);
 	$('#quote').html(q[x][0]);
 	$('#movie').html(q[x][1]);
 
