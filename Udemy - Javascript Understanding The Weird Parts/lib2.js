@@ -1,5 +1,5 @@
 window.libName = window.libName || "Lib2";
-console.log(libName);
+console.log("-------------------------------" + libName);
 
 // objects
 var firstNameProperty = "firstName";

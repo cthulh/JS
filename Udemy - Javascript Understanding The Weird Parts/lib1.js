@@ -1,1 +1,6 @@
-var libName = "Lib1";
+(function(){
+  var libName = "Lib1";
+  console.log("-------------------------------" + libName);
+
+  console.log("Selfinvoked!");
+})();

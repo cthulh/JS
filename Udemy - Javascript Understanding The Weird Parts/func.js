@@ -1,16 +1,18 @@
+console.log("------------------------------- functions");
 function greet() {
 	console.log('hi');
 }
 
 greet();
-
+// functions are objects, you can assign properties to them
 greet.language = 'english';
 console.log(greet.language);
 
-var anonymousGreet = function() {
-	console.log("hi!");
-}
-
+// can't call anonymousGreet() prior to setting the variable as it doesn't get hoisted like normal functions
+var anonymousGreet = function() { // no NAME property
+	console.log("hi!"); // CODE property
+};
+// invokes the CODE property of the function object assigned to this variable
 anonymousGreet();
 
 function log(a) {
