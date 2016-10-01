@@ -16,47 +16,59 @@ var anonymousGreet = function() { // no NAME property
 anonymousGreet();
 
 function log(a) {
-	a();
+	a(); // invokes passed function
 }
+var passableFunc = function() {
+  console.log("hi, from a passed function!");
+};
 
-log(function() {
-	console.log("hi");
-});
+log(passableFunc); // pass a function as parameter without invocation ()
 
-// by value (primitives)
 
-var a = 3;
+console.log("-------- by value (primitives)");
+var a = 3; // var a points to value 3
 var b;
-b = 3;
-a = 2;
-console.log(a);
-console.log(b);
+b = a; // var b points to a copy of value that a points to, to a clone, a brand new address in memory
+a = 2; // var a now points to a different address in memory
+console.log("var a = " + a);
+console.log("var b = " + b); // var b still points to value 3 even though var a was changed
 
-// by reference (all objects (including functions))
+console.log("-------- by reference (all objects (including functions))");
 
-var c = { greeting: "Hi"};
+var c = { greeting: "C object says Hi"};
+console.log("Object C");
+console.log(c);
 var d;
 
-d = c;
-c.greeting = "hello"; // mutate
-
-console.log(c);
+d = c; // object D now points to the same address in memory as object C
+console.log("Object D");
 console.log(d);
+console.log("----");
+c.greeting = "C object now says hello"; // mutate
+console.log("Object C");
+console.log(c);
+console.log("Object D");
+console.log(d);
+console.log("----");
 
-// by reference (even as parameters)
+console.log("-------- by reference (even as parameters)");
 
 function changeGreeting(obj) {
 	obj.greeting = "Hola";
 }
 
 changeGreeting(d); //mutate d
+console.log("Object C");
 console.log(c);
+console.log("Object D");
 console.log(d);
 
 // equals operator sets up new memory space (new address)
-
+console.log('c = { greeting: "howdy"}; // sets new address');
 c = { greeting: "howdy"}; // sets new address
+console.log("Object C");
 console.log(c);
+console.log("Object D");
 console.log(d);
 
 // "this" in functions
