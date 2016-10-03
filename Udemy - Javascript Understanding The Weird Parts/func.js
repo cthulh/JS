@@ -71,7 +71,7 @@ console.log(c);
 console.log("Object D");
 console.log(d);
 
-// "this" in functions
+console.log("--------------------- *this* in functions");
 
 function aFunc(){
 	console.log(this);
