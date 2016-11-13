@@ -1,0 +1,66 @@
+@media (max-width: 768px) { 
+  .main {
+  margin: 0;
+  }
+ }
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #D6D1C4;
+}
+
+footer {
+  height: 3em;
+  background: #222222;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.copyright {
+  color: white;
+  padding: 0.4em;
+}
+
+#jung-btn {
+  margin: 0.5em 0 0 0;
+  padding: 0.3em;
+}
+
+.jung-img {
+  border-radius: 1%;
+  margin: 2em auto;
+  width: 100%;
+  height: 80%;
+}
+
+.square {
+  background: white;
+  box-shadow: 1px 1px 1px #888;
+  margin-bottom: 0.3em;
+  border: #888 solid 0.01em;
+}
+
+.jumbotron {
+  background-image: url(http://www.sofia.edu/wp-content/uploads/2014/07/Carl-Jung.jpg);
+  background-size: 100% 100%;
+}
+
+.jumbotron h1 {
+  font-family: Lora;
+  color: white;
+}
+
+.white {
+  color: white;
+}
+
+.grey {
+  color: grey;
+}
+
+.main {
+  margin: 25em auto 3em auto;
+}
+
