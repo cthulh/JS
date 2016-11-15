@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # JS
 Javascript beginner courses / books
 =======
@@ -21,6 +20,3 @@ My goal is to finish it without getting employed. That should show them. Making 
 3. Tribute Page [PROJECT WEBSITE](http://jung-tribute.bitballoon.com/)
 
   This is a basic tribute page dedicated to Carl Jung my childchood hero I've built as part of the Basic Front End Dev Projects challange.
-
-
->>>>>>> 1dadace35f54583a4e406ffe3155f88aa0d6042e
