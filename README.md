@@ -1,6 +1,4 @@
-# JS
-Javascript beginner courses / books
-=======
+
 # Free-Code-Camp
 My glorious profile: https://www.freecodecamp.com/cthulh
 
