@@ -1,6 +1,15 @@
 // event to handle form submission
 document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
 
+function writeToLocalStorage(arr) {
+  // send object to localStorage
+  localStorage.setItem('issues', JSON.stringify(arr));
+}
+
+function readFromLocalStorage(name) {
+  return JSON.parse(localStorage.getItem(name));
+}
+
 function saveIssue(e) {
   console.log('Button pressed.');
   var issueDesc = document.getElementById('issueDescInput').value;
@@ -27,17 +36,15 @@ function saveIssue(e) {
     console.log('No previous issues');
     var issues = [];
     issues.push(issue);
-    // send object to localStorage
-    localStorage.setItem('issues', JSON.stringify(issues));
+    writeToLocalStorage(issues);
   } else {
     // if localStorage has items in it populate issues array with them
     console.log('Some previous issues');
-    var issues = JSON.parse(localStorage.getItem('issues'));
-    console.log(JSON.parse(localStorage.getItem('issues')));
+    var issues = readFromLocalStorage('issues');
+    console.log(issues.toString());
     // then add new issue object to the array
     issues.push(issue);
-    // send object to localStorage
-    localStorage.setItem('issues', JSON.stringify(issues));
+    writeToLocalStorage(issues);
   }
   //reset the form
   document.getElementById('issueInputForm').reset();
@@ -48,7 +55,7 @@ function saveIssue(e) {
 }
 
 function setStatusClosed(id) {
-  var issues = JSON.parse(localStorage.getItem('issues'));
+  var issues = readFromLocalStorage('issues');
 
   for (var i = 0; i < issues.length; i++){
     if (issues[i].id === id) {
@@ -56,14 +63,12 @@ function setStatusClosed(id) {
     }
   }
 
-  localStorage.setItem('issues', JSON.stringify(issues));
-
+  writeToLocalStorage(issues);
   fetchIssues();
-
 }
 
 function deleteIssue(id) {
-  var issues = JSON.parse(localStorage.getItem('issues'));
+  var issues = readFromLocalStorage('issues');
 
   for (var i = 0; i < issues.length; i++){
     if (issues[i].id === id) {
@@ -71,17 +76,14 @@ function deleteIssue(id) {
     }
   }
 
-  localStorage.setItem('issues', JSON.stringify(issues));
-
+  writeToLocalStorage(issues);
   fetchIssues();
 }
 
 
 // retrieving data from local storage
 function fetchIssues() {
-  //localStorage.clear();
-  //return;
-  var issues = JSON.parse(localStorage.getItem('issues'));
+  var issues = readFromLocalStorage('issues');
   // exit if no issues in localStorage
   if (issues == null) {
     console.log('No issues in localStorage!');
@@ -110,6 +112,5 @@ function fetchIssues() {
                             '<a href="#" onclick="setStatusClosed(\'' + id + '\')" class="btn btn-warning">Close</a>'+
                             '<a href="#" onclick="deleteIssue(\'' + id + '\')" class="btn btn-danger">Delete</a>'+
                             '</div>';
-
   }
 }
