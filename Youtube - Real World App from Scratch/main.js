@@ -8,6 +8,7 @@ function saveIssue(e) {
   var issueAssignedTo = document.getElementById('issueAssignedToInput').value;
   var issueId = chance.guid();
   var issueStatus = 'Open';
+  console.log('Logged: ' + issueDesc + ', ' + issueSeverity + ', ' + issueAssignedTo + ', ' + issueId + ', ' + issueStatus);
 
   // populate issues object to be later pushed to localStorage
   var issue = {
@@ -18,20 +19,25 @@ function saveIssue(e) {
     status: issueStatus
   };
 
+  console.log(issue);
+
   //check if localStorage is empty
   if (localStorage.getItem('issues') == null) {
     // if so, populate issues array with the issue object
+    console.log('No previous issues');
     var issues = [];
     issues.push(issue);
     // send object to localStorage
     localStorage.setItem('issues', JSON.stringify(issues));
   } else {
     // if localStorage has items in it populate issues array with them
+    console.log('Some previous issues');
     var issues = JSON.parse(localStorage.getItem('issues'));
+    console.log(JSON.parse(localStorage.getItem('issues')));
     // then add new issue object to the array
     issues.push(issue);
     // send object to localStorage
-    localStorage.setItem('issues', JSON.stringify('issues'));
+    localStorage.setItem('issues', JSON.stringify(issues));
   }
   //reset the form
   document.getElementById('issueInputForm').reset();
@@ -41,9 +47,40 @@ function saveIssue(e) {
   e.preventDefault();
 }
 
+function setStatusClosed(id) {
+  var issues = JSON.parse(localStorage.getItem('issues'));
+
+  for (var i = 0; i < issues.length; i++){
+    if (issues[i].id === id) {
+      issues[i].status = 'Closed';
+    }
+  }
+
+  localStorage.setItem('issues', JSON.stringify(issues));
+
+  fetchIssues();
+
+}
+
+function deleteIssue(id) {
+  var issues = JSON.parse(localStorage.getItem('issues'));
+
+  for (var i = 0; i < issues.length; i++){
+    if (issues[i].id === id) {
+      issues.splice(i ,1);
+    }
+  }
+
+  localStorage.setItem('issues', JSON.stringify(issues));
+
+  fetchIssues();
+}
+
 
 // retrieving data from local storage
 function fetchIssues() {
+  //localStorage.clear();
+  //return;
   var issues = JSON.parse(localStorage.getItem('issues'));
   // exit if no issues in localStorage
   if (issues == null) {
@@ -57,6 +94,7 @@ function fetchIssues() {
 
   // iterate over the array of fetched issues
   for (var i = 0; i < issues.length; i++){
+    console.log(issues[i]);
     var id = issues[i].id;
     var desc = issues[i].description;
     var severity = issues[i].severity;
