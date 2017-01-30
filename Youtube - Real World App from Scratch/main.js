@@ -1,3 +1,13 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyB0MYNXIZkJbMeW6zWQrEDdsNQmvvYjYmI",
+  authDomain: "issue-tracker-a4304.firebaseapp.com",
+  databaseURL: "https://issue-tracker-a4304.firebaseio.com",
+  storageBucket: "issue-tracker-a4304.appspot.com",
+  messagingSenderId: "664719698064"
+};
+firebase.initializeApp(config);
+
 // event to handle form submission
 document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
 
