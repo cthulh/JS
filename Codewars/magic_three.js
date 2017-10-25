@@ -7,8 +7,8 @@
  */
 
 function isMagicThree(array) {
-  var result = false;
   if (array.indexOf(0) !== -1) return true;
+  var tempval = 0;
   // check slot x2 with each other number
   function isThree(arr){
     var el = arr[0];
@@ -21,7 +21,6 @@ function isMagicThree(array) {
     }
   }
   for (var i = 0; i < array.length; i++){
-    var tempval = 0;
     if (i===0){
       if (isThree(array) === true) return true;
     } else {
@@ -32,15 +31,18 @@ function isMagicThree(array) {
     }
   }
   // check slot x1 with each other number
-  function isThreeRecurs(el,arr){
-    var temparr = [];
-    if (arr.length === 3) {
-      return arr[0] + arr[1] + arr[3];
-    } else {
-
+  // array 3 and loner
+  if (array.length >= 3) {
+    for (var j = 0; j < array.length; j++) {
+      var el = array[j];
+      console.log("Element: " + el + ", Array: " + array.toString());
+      for (var p = 0; p < array.length - 1; p++) {
+        tempval = el + array[p] + array[p+1];
+        console.log("Sum: " + el + " + " + array[p] + " + " + array[p+1] + " = " + tempval);
+        if (tempval === 0) return true;
+      }
     }
   }
-
 
   return false;
 }
@@ -63,3 +65,4 @@ isMagicThree([0]);
 isMagicThree([2]);
 isMagicThree([1,1]);
 isMagicThree([-1,1]);
+isMagicThree([1,2,3,4]);
